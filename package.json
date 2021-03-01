@@ -1,6 +1,8 @@
 {
-  "name": "ditto",
-  "license": "UNLICENSED",
+  "name": "ditto-subgraph",
+  "version": "1.0.0",
+  "author": "codingsh <codingsh@pm.me>",
+  "license": "MIT",
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",

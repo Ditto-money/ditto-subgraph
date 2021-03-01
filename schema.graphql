@@ -1,5 +1,7 @@
-type ExampleEntity @entity {
+type SwapDeposit @entity {
   id: ID!
-  count: BigInt!
-  previousOwner: Bytes! # address
+  depositor: Bytes!
+  input: Bytes!
+  inputAmount: BigInt!
+  outputAmount: BigInt!
 }
