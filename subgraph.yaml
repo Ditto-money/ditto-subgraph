@@ -1,0 +1,29 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: DittoTokenSwap
+    network: mainnet
+    source:
+      address: "0x6edc3Dfd23856A932601494abCa753Eb144450BC"
+      abi: DittoTokenSwap
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.2
+      language: wasm/assemblyscript
+      entities:
+        - OwnershipRenounced
+        - OwnershipTransferred
+        - SwapDeposit
+      abis:
+        - name: DittoTokenSwap
+          file: ./abis/DittoTokenSwap.json
+      eventHandlers:
+        - event: OwnershipRenounced(indexed address)
+          handler: handleOwnershipRenounced
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: SwapDeposit(address,address,uint256,uint256)
+          handler: handleSwapDeposit
+      file: ./src/mapping.ts
