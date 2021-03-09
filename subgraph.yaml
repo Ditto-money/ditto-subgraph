@@ -27,3 +27,28 @@ dataSources:
         - event: SwapDeposit(address,address,uint256,uint256)
           handler: handleSwapDeposit
       file: ./src/mapping.ts
+  - kind: ethereum/contract
+    name: DittoTokenSwapREB2
+    network: mainnet
+    source:
+      address: "0xC621C5dc44Eb12cacEBd5959E07D8FeC508f868E"
+      abi: DittoTokenSwapREB2
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - OwnershipRenounced
+        - OwnershipTransferred
+        - SwapDeposit
+      abis:
+        - name: DittoTokenSwapREB2
+          file: ./abis/DittoTokenSwap.json
+      eventHandlers:
+        - event: OwnershipRenounced(indexed address)
+          handler: handleOwnershipRenounced
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: SwapDeposit(address,address,uint256,uint256)
+          handler: handleSwapDepositREB2
+      file: ./src/mapping.ts

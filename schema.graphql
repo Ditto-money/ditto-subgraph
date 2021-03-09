@@ -5,3 +5,11 @@ type SwapDeposit @entity {
   inputAmount: BigInt!
   outputAmount: BigInt!
 }
+
+type SwapDepositREB2 @entity {
+  id: ID!
+  depositor: Bytes!
+  input: Bytes!
+  inputAmount: BigInt!
+  outputAmount: BigInt!
+}
